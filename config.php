@@ -1,7 +1,10 @@
 <?php
-$localhost="localhost";
-$db="stu2024";
-$root="root";
-$password="";
-$con=mysqli_connect($localhost,$root,$password, $db);
+ $localhost = "localhost";
+ $db = "wecd";
+ $root = "root";
+ $password = "";
+ $con = mysqli_connect($localhost, $root, $password, $db);
+ if (!$con) {
+   die("Connection failed: " . mysqli_connect_error());
+ }
 ?>
