@@ -1,0 +1,64 @@
+/* src/components/ExplorePage.css */
+
+.explore-container {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .explore-header {
+    margin-bottom: 40px;
+  }
+  
+  .explore-header h1 {
+    font-size: 2.5em;
+    color: #333;
+  }
+  
+  .explore-header p {
+    font-size: 1.2em;
+    color: #666;
+  }
+  
+  .books-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .book-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    overflow: hidden;
+    text-align: left;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .book-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .book-cover {
+    width: 100%;
+    height: auto;
+  }
+  
+  .book-details {
+    padding: 15px;
+  }
+  
+  .book-details h2 {
+    font-size: 1.5em;
+    margin: 0 0 10px;
+  }
+  
+  .book-details p {
+    font-size: 1.1em;
+    color: #555;
+  }
+  

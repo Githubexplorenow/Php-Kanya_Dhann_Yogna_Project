@@ -36,3 +36,16 @@
     transform: rotate(360deg);
   }
 }
+
+
+.app-container {
+  background-image: url('./assets/images/img.jpeg'); /* Adjust the path if necessary */
+  filter: blur(0.3px); 
+  background-size: cover; /* Cover the entire container */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* Prevent repeating */
+  height: 100vh; /* Full viewport height */
+  width: 100vw; /* Full viewport width */
+  /* Additional styling */
+}
+
