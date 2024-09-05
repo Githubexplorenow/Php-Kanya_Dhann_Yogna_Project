@@ -46,6 +46,7 @@ order: [[3, 'desc']]
                 add_payment.monthly_payment, 
                 add_payment.payment_date, 
                 add_payment.ending_date
+                add_payment.due_date
             FROM 
                 candidate_reg
             INNER JOIN 
@@ -84,6 +85,7 @@ order: [[3, 'desc']]
                         <th>Monthly Payment</th>
                         <th>Payment Date</th>
                         <th>Ending Date</th>
+                        <th>Due Date</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -98,6 +100,7 @@ order: [[3, 'desc']]
                             <td><?php echo htmlspecialchars($row['monthly_payment']); ?></td>
                             <td><?php echo htmlspecialchars($row['payment_date']); ?></td>
                             <td><?php echo htmlspecialchars($row['ending_date']); ?></td>
+                              <td><?php echo htmlspecialchars($row['due_date']); ?></td>
                             <td>
                                 <?php echo"
                      <a href='View_Details.php?candidate_id=".htmlspecialchars($row['candidate_id']); ?>'   class="btn btn-primary">View Status</a>
