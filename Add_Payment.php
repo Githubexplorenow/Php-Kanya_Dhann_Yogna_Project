@@ -25,15 +25,29 @@ if (isset($_POST['submit'])) {
     $start_date->modify('+14 years');
     $ending_date = $start_date->format('Y-m-d');
 
-    // Insert into add_payment table
-    $sql = "INSERT INTO add_payment (pid, candidate_id, initial_payment, monthly_payment, payment_date, ending_date) 
-            VALUES ('$pid', '$candidate_id', '$initial_payment', '$monthly_payment', '$payment_date', '$ending_date')";
+   $due_date = date('Y-m-d', strtotime('+1 month', strtotime($payment_date)));
+ 
+     // Check if there's an existing payment for this candidate on the same date or within the due period
+     $sql_check = "SELECT * FROM add_payment
+     WHERE candidate_id = '$candidate_id'
+     AND (
+         payment_date = '$payment_date'
+         OR (payment_date <= '$due_date' AND due_date >= '$payment_date')
+     )";
+$result = mysqli_query($con, $sql_check);
 
-    if (mysqli_query($con, $sql)) {
-        echo "<script>alert('Data successfully entered');</script>";
-    } else {
-        echo "<script>alert('Error: " . mysqli_error($con) . "');</script>";
-    }
+if (mysqli_num_rows($result) > 0) {
+echo "<script>alert('Payment already exists for this candidate on this date or within the due period.');</script>";
+} else {
+// Insert new payment record if no duplicate found
+$sql_insert = "INSERT INTO add_payment (pid, candidate_id, initial_payment, monthly_payment, payment_date, ending_date, due_date) 
+          VALUES ('$pid', '$candidate_id', '$initial_payment', '$monthly_payment', '$payment_date', '$ending_date', '$due_date')";
+if (mysqli_query($con, $sql_insert)) {
+echo "<script>alert('Data successfully entered');</script>";
+} else {
+echo "<script>alert('Error: " . mysqli_error($con) . "');</script>";
+}
+}
 }
 ?>
 
