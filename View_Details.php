@@ -165,6 +165,10 @@
                                 <th>Ending Date:</th>
                                 <td><?php echo htmlspecialchars($row['ending_date']); ?></td>
                             </tr>
+                            <tr>
+                                <th>Due Date</th>
+                                <td><?php echo htmlspecialchars($row['due_date']); ?></td>
+                            </tr>
                         </table>
                     </div>
                 </div>
